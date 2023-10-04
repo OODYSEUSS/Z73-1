@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:z73_1/ui/pages/auth/get_started.dart';
 import 'package:z73_1/ui/pages/home/home_page.dart';
 
 void main() {
@@ -11,7 +12,7 @@ class Application extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: HomePage(),
+      home: GetStarted(),
     );
   }
 }

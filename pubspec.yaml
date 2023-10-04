@@ -22,3 +22,12 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+# To add assets to your application, add an assets section, like this:
+assets:
+    - assets/images/get_started.png
+
+fonts:
+  - family: Sora
+    fonts:
+     - asset: assets/fonts/Sora-SemiBold.ttf
