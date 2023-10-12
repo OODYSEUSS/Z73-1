@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:z73_1/ui/pages/auth/login.dart';
 
-class Register extends StatefulWidget {
-  const Register({super.key});
+class Register extends StatelessWidget {
+  Register({super.key});
 
-  @override
-  State<Register> createState() => _RegisterState();
-}
+  // контроллеры текстовых полей
+  final usernameControllerReg = TextEditingController();
+  final passwordControllerReg = TextEditingController();
+  final confirmPasswordControllerReg = TextEditingController();
+  // регистрация в акк
+  void signUserUp() {}
 
-class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
+          //верхняя шапка
           Image.asset(
             '/Library/flutter_projects/z73_1/assets/images/top_cap2.PNG',
             fit: BoxFit.fitWidth,
@@ -20,7 +24,7 @@ class _RegisterState extends State<Register> {
           const SizedBox(
             height: 40,
           ),
-          // написать текст 'Sing Up'
+          // написать текст 'Register'
           const Text(
             'Register',
             style: TextStyle(
@@ -34,110 +38,33 @@ class _RegisterState extends State<Register> {
             height: 15,
           ),
           // texfield email
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: TextField(
-              decoration: InputDecoration(
-                fillColor: Colors.white,
-                filled: true,
-                hintText: 'Email',
-                contentPadding:
-                    const EdgeInsets.symmetric(vertical: 17, horizontal: 20),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
-                  borderSide: const BorderSide(
-                    color: Color.fromRGBO(222, 222, 222, 1.0),
-                  ),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
-                  borderSide: const BorderSide(
-                    color: Color.fromRGBO(222, 222, 222, 1.0),
-                    width: 2,
-                  ),
-                ),
-              ),
-            ),
-          ),
+          MyTextField(
+              controller: usernameControllerReg,
+              hintText: 'Email',
+              obscureText: false),
           const SizedBox(
             height: 15,
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: TextField(
-              decoration: InputDecoration(
-                fillColor: Colors.white,
-                filled: true,
-                hintText: 'Password',
-                contentPadding:
-                    const EdgeInsets.symmetric(vertical: 17, horizontal: 20),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
-                  borderSide: const BorderSide(
-                    color: Color.fromRGBO(222, 222, 222, 1.0),
-                  ),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
-                  borderSide: const BorderSide(
-                    color: Color.fromRGBO(222, 222, 222, 1.0),
-                    width: 2,
-                  ),
-                ),
-              ),
-            ),
-          ),
+          // textfield password
+          MyTextField(
+              controller: passwordControllerReg,
+              hintText: 'Password',
+              obscureText: true),
           const SizedBox(
             height: 15,
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: TextField(
-              decoration: InputDecoration(
-                fillColor: Colors.white,
-                filled: true,
-                hintText: 'Confirm password',
-                contentPadding:
-                    const EdgeInsets.symmetric(vertical: 17, horizontal: 20),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
-                  borderSide: const BorderSide(
-                    color: Color.fromRGBO(222, 222, 222, 1.0),
-                  ),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
-                  borderSide: const BorderSide(
-                    color: Color.fromRGBO(222, 222, 222, 1.0),
-                    width: 2,
-                  ),
-                ),
-              ),
-            ),
-          ),
+          // textfield confirm password
+          MyTextField(
+              controller: confirmPasswordControllerReg,
+              hintText: 'Confirm password',
+              obscureText: true),
           const SizedBox(
             height: 20,
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(360, 52),
-                  backgroundColor: const Color.fromRGBO(198, 124, 78, 1.0),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  )),
-              child: const Text(
-                'Sign Up',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontFamily: 'Sora',
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ),
+          // elevatedbutton Sign Up
+          MyButton(
+            onPressed: signUserUp,
+            text: 'Sign Up',
           ),
           const SizedBox(
             height: 40,
@@ -154,51 +81,23 @@ class _RegisterState extends State<Register> {
           const SizedBox(
             height: 40,
           ),
+          // кнопки для регистрации с помощью гугла и эпла
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              GestureDetector(
-                onTap: () {},
-                child: Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: const Color.fromRGBO(222, 222, 222, 1.0),
-                    ),
-                    borderRadius: BorderRadius.circular(15),
-                    color: Colors.white,
-                  ),
-                  child: Image.asset(
-                    '/Library/flutter_projects/z73_1/assets/images/google.png',
-                    height: 50,
-                    width: 50,
-                  ),
-                ),
-              ),
+              MyImageButton(
+                  imagePath:
+                      '/Library/flutter_projects/z73_1/assets/images/google.png',
+                  onTap: () {}),
               const SizedBox(
                 width: 20,
               ),
-              GestureDetector(
-                onTap: () {},
-                child: Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Color.fromRGBO(222, 222, 222, 1.0),
-                    ),
-                    borderRadius: BorderRadius.circular(15),
-                    color: Colors.white,
-                  ),
-                  child: Image.asset(
-                    '/Library/flutter_projects/z73_1/assets/images/apple.png',
-                    height: 50,
-                    width: 50,
-                  ),
-                ),
-              ),
+              MyImageButton(
+                  imagePath:
+                      '/Library/flutter_projects/z73_1/assets/images/apple.png',
+                  onTap: () {}),
             ],
           ),
-
           const Spacer(), // добавил пространство для выравнивания последней картинки
           Align(
             // а этой хуйней выровнял картинку по нижнему левому краю
