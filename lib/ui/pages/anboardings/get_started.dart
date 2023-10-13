@@ -61,7 +61,9 @@ class GetStarted extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/login');
+                  },
                   style: ElevatedButton.styleFrom(
                       minimumSize: const Size(360, 55),
                       backgroundColor: const Color.fromRGBO(198, 124, 78, 1.0),

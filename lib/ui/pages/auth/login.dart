@@ -17,9 +17,27 @@ class Login extends StatelessWidget {
         child: Column(
           children: [
             // верхняя шапка
-            Image.asset(
-              '/Library/flutter_projects/z73_1/assets/images/top_cap.PNG',
-              fit: BoxFit.fitWidth,
+            Stack(
+              children: [
+                Image.asset(
+                  '/Library/flutter_projects/z73_1/assets/images/top_cap.PNG',
+                  fit: BoxFit.fitWidth,
+                ),
+                Positioned(
+                  top: 30,
+                  left: 5,
+                  child: IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: const Icon(
+                      Icons.arrow_back_ios_sharp,
+                      size: 35,
+                      color: Color.fromRGBO(249, 249, 249, 1.0),
+                    ),
+                  ),
+                ),
+              ],
             ),
             const SizedBox(
               height: 30,
@@ -57,9 +75,16 @@ class Login extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  MyTextButton(onPressed: () {}, text: 'Forgot password'),
                   MyTextButton(
-                      onPressed: () {}, text: 'Sign up for an account.')
+                    onPressed: () {},
+                    text: 'Forgot password',
+                  ),
+                  MyTextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/register');
+                    },
+                    text: 'Sign up for an account.',
+                  )
                 ],
               ),
             ),

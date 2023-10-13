@@ -14,7 +14,13 @@ class Application extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: GetStarted(),
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const GetStarted(),
+        '/login': (context) => Login(),
+        '/register': (context) => Register(),
+      },
     );
   }
 }
