@@ -1,15 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:z73_1/core/auth/registration.dart';
 import 'package:z73_1/ui/pages/auth/login.dart';
 
 class Register extends StatelessWidget {
   Register({super.key});
-
-  // контроллеры текстовых полей
-  final usernameControllerReg = TextEditingController();
-  final passwordControllerReg = TextEditingController();
-  final confirmPasswordControllerReg = TextEditingController();
-  // регистрация в акк
-  void signUserUp() {}
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +75,9 @@ class Register extends StatelessWidget {
           ),
           // elevatedbutton Sign Up
           MyButton(
-            onPressed: signUserUp,
+            onPressed: () {
+              signUserUp(context);
+            },
             text: 'Sign Up',
           ),
           const SizedBox(
