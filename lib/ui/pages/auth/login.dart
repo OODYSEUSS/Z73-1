@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 
-class Login extends StatelessWidget {
+import '../../../core/auth/authentication.dart';
+
+class Login extends StatefulWidget {
   Login({super.key});
 
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
   // контроллеры текстовых полей
-  final usernameController = TextEditingController();
-  final passwordController = TextEditingController();
-  // вход в акк
-  void signUserIn() {}
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +23,7 @@ class Login extends StatelessWidget {
             Stack(
               children: [
                 Image.asset(
-                  '/Library/flutter_projects/z73_1/assets/images/top_cap.PNG',
+                  'assets/images/top_cap.PNG',
                   fit: BoxFit.fitWidth,
                 ),
                 Positioned(
@@ -57,7 +60,7 @@ class Login extends StatelessWidget {
             ),
             // texfield email
             MyTextField(
-                controller: usernameController,
+                controller: emailController,
                 hintText: 'Email',
                 obscureText: false),
             const SizedBox(
@@ -90,11 +93,11 @@ class Login extends StatelessWidget {
             ),
             // button login
             MyButton(
-              onPressed: signUserIn,
+              onPressed: () => signUserIn(context),
               text: 'Sign In',
             ),
             const SizedBox(
-              height: 40,
+              height: 39,
             ),
             Text(
               'Or sign in with',
@@ -106,23 +109,21 @@ class Login extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 40,
+              height: 39,
             ),
             // кнопки для авторизации с помощью гугла и эпла
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 MyImageButton(
-                  imagePath:
-                      '/Library/flutter_projects/z73_1/assets/images/google.png',
+                  imagePath: 'assets/images/google.png',
                   onTap: () {},
                 ),
                 const SizedBox(
                   width: 20,
                 ),
                 MyImageButton(
-                  imagePath:
-                      '/Library/flutter_projects/z73_1/assets/images/apple.png',
+                  imagePath: 'assets/images/apple.png',
                   onTap: () {},
                 ),
               ],
@@ -132,7 +133,7 @@ class Login extends StatelessWidget {
               // а этой хуйней выровнял картинку по нижнему левому краю
               alignment: Alignment.bottomLeft,
               child: Image.asset(
-                '/Library/flutter_projects/z73_1/assets/images/bottom_cap.PNG',
+                'assets/images/bottom_cap.PNG',
                 fit: BoxFit.fitWidth,
               ),
             ),
@@ -163,25 +164,31 @@ class MyTextField extends StatelessWidget {
         controller: controller,
         obscureText: obscureText,
         decoration: InputDecoration(
-          fillColor: Colors.white,
-          filled: true,
-          hintText: hintText,
-          contentPadding:
-              const EdgeInsets.symmetric(vertical: 17, horizontal: 20),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
-            borderSide: const BorderSide(
-              color: Color.fromRGBO(222, 222, 222, 1.0),
+            fillColor: Colors.white,
+            filled: true,
+            hintText: hintText,
+            contentPadding:
+                const EdgeInsets.symmetric(vertical: 17, horizontal: 20),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(15),
+              borderSide: const BorderSide(
+                color: Color.fromRGBO(222, 222, 222, 1.0),
+              ),
             ),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
-            borderSide: const BorderSide(
-              color: Color.fromRGBO(222, 222, 222, 1.0),
-              width: 2,
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(15),
+              borderSide: const BorderSide(
+                color: Color.fromRGBO(222, 222, 222, 1.0),
+                width: 2,
+              ),
             ),
-          ),
-        ),
+            focusedErrorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(15),
+              borderSide: BorderSide(
+                color: Colors.red.shade400,
+                width: 2,
+              ),
+            )),
       ),
     );
   }

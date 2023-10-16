@@ -20,7 +20,7 @@ class Register extends StatelessWidget {
           Stack(
             children: [
               Image.asset(
-                '/Library/flutter_projects/z73_1/assets/images/top_cap2.PNG',
+                'assets/images/top_cap2.PNG',
                 fit: BoxFit.fitWidth,
               ),
               Positioned(
@@ -85,7 +85,7 @@ class Register extends StatelessWidget {
             text: 'Sign Up',
           ),
           const SizedBox(
-            height: 40,
+            height: 39,
           ),
           Text(
             'Or sign up with',
@@ -97,7 +97,7 @@ class Register extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 40,
+            height: 39,
           ),
           // кнопки для регистрации с помощью гугла и эпла
           Row(
@@ -121,7 +121,7 @@ class Register extends StatelessWidget {
             // а этой хуйней выровнял картинку по нижнему левому краю
             alignment: Alignment.bottomLeft,
             child: Image.asset(
-              '/Library/flutter_projects/z73_1/assets/images/bottom_cap.PNG',
+              'assets/images/bottom_cap.PNG',
               fit: BoxFit.fitWidth,
             ),
           ),

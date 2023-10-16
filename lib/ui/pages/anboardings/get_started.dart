@@ -16,7 +16,7 @@ class GetStarted extends StatelessWidget {
                 child: Stack(
                   children: [
                     Image.asset(
-                      '/Library/flutter_projects/z73_1/assets/images/get_started.png',
+                      'assets/images/get_started.png',
                       fit: BoxFit.fitWidth,
                       width: 468,
                       height: 570,
