@@ -1,0 +1,44 @@
+name: z73_1
+description: A new Flutter project.
+
+publish_to: 'none' 
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.6 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  firebase_core: ^2.17.0
+  firebase_auth: ^4.10.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/apple.png
+    - assets/images/bottom_cap.PNG
+    - assets/images/get_started.png
+    - assets/images/google.png
+    - assets/images/top_cap.PNG
+    - assets/images/top_cap2.PNG
+  fonts:
+    - family: Sora
+      fonts:
+        - asset: assets/fonts/Sora-Bold.ttf
+        - asset: assets/fonts/Sora-ExtraBold.ttf
+        - asset: assets/fonts/Sora-ExtraLight.ttf
+        - asset: assets/fonts/Sora-Light.ttf
+        - asset: assets/fonts/Sora-Medium.ttf
+        - asset: assets/fonts/Sora-Regular.ttf
+        - asset: assets/fonts/Sora-SemiBold.ttf
+        - asset: assets/fonts/Sora-Thin.ttf
